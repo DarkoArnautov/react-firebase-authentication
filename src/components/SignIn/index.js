@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SignInPage = () => (
+const SignInPage = () =>(
 	<div>
 		SignIn page
 	</div>
