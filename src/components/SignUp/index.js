@@ -7,13 +7,12 @@ import * as ROUTES from '../../constants/routes';
 
 const SignUpPage = () =>(
 	<div>
-		<h1>SignUp</h1>
 		<SignUpForm />
 	</div>
 );
 
 const SignUpLink = () => (
-	<p>
+	<p className="has-text-centered">
 		Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
 	</p>
 );
@@ -70,38 +69,67 @@ class SignUpFormBase extends Component {
 	    	username === "" ;
 
 		return (
-			<form onSubmit={this.onSubmit} >
-				<input 
-					name="username"
-					value={username}
-					onChange={this.onChange}
-					type="text"
-					placeholder="Full Name"
-				/>
-				<input 
-					name="email"
-					value={email}
-					onChange={this.onChange}
-					type="text"
-					placeholder="Email Address"
-				/>
-				<input 
-					name="passwordOne"
-					value={passwordOne}
-					onChange={this.onChange}
-					type="password"
-					placeholder="Password"
-				/>
-				<input 
-					name="passwordTwo"
-					value={passwordTwo}
-					onChange={this.onChange}
-					type="password"
-					placeholder="Confirm Password"
-				/>
-				<button disabled={isInvalid} type="submit">Sign Up</button>
-				{ error && <p>{error.message}</p>}
-			</form>
+			<div className="section">
+				<div className="container">
+					<div className="columns">
+						<div className="column"></div>
+						<div className="column is-6">
+							<h1 className="title has-text-centered">Sign Up</h1>
+							<form onSubmit={this.onSubmit} >
+								<div className="field">
+									<label className="label">User Name</label>
+									<input 
+										className="input"
+										name="username"
+										value={username}
+										onChange={this.onChange}
+										type="text"
+										placeholder="Full Name"
+									/>
+								</div>
+								<div className="field">
+									<label className="label">Email</label>
+									<input 
+										className="input"
+										name="email"
+										value={email}
+										onChange={this.onChange}
+										type="text"
+										placeholder="Email Address"
+									/>
+								</div>
+								<div className="field">
+									<label className="label">Password</label>
+									<input 
+										className="input"
+										name="passwordOne"
+										value={passwordOne}
+										onChange={this.onChange}
+										type="password"
+										placeholder="Password"
+									/>
+								</div>
+								<div className="field">
+									<label className="label">Confirm Password</label>
+									<input 
+										className="input"
+										name="passwordTwo"
+										value={passwordTwo}
+										onChange={this.onChange}
+										type="password"
+										placeholder="Confirm Password"
+									/>
+								</div>
+								<div className="field">
+									<button className="button is-info" disabled={isInvalid} type="submit">Sign Up</button>
+								</div>
+								{ error && <p>{error.message}</p>}
+							</form>
+						</div>
+						<div className="column"></div>
+					</div>
+				</div>
+			</div>
 		);
 	}
 }
