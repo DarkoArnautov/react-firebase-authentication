@@ -1,9 +1,18 @@
 import React from 'react';
 
+import { withAuthorization } from '../Session';
+import * as ROLES from '../../constants/roles';
+
 const AdminPage = () => (
 	<div>
-		Admin Page
+		<h1>Admin</h1>
+		<p>
+			Restricted area! Only users with the admin role are authorized.
+		</p>
 	</div>
 );
 
-export default AdminPage;
+const condition = authUser =>
+  authUser && authUser.roles.includes(ROLES.ADMIN);
+
+export default withAuthorization(condition)(AdminPage);
