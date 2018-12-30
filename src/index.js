@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import 'react-bulma-components/full';
 import * as serviceWorker from './serviceWorker';
 
 import Firebase, { FirebaseContext } from './components/Firebase';

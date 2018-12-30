@@ -9,9 +9,9 @@ import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    
     <SignInForm />
-	<PasswordForgetLink />
+	  <PasswordForgetLink />
     <SignUpLink />
   </div>
 );
@@ -55,27 +55,47 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <div className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column"></div>
+            <div className="column is-6">
+              <h1 className="title">SignIn</h1>
+              <form onSubmit={this.onSubmit}>
+                <div className="field">
+                  <label className="label">User Name</label>
+                  <input
+                    className="input"
+                    name="email"
+                    value={email}
+                    onChange={this.onChange}
+                    type="email"
+                    placeholder="Email Address"
+                  />
+                </div>
+                <div className="field">
+                  <label className="label">Password</label>
+                  <input
+                    className="input"
+                    name="password"
+                    value={password}
+                    onChange={this.onChange}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </div>
+                <div className="field">
+                  <button className="button is-primary" disabled={isInvalid} type="submit">
+                    Sign In
+                  </button>
+                </div>
+                {error && <p>{error.message}</p>}
+              </form>
+            </div>
+            <div className="column"></div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
